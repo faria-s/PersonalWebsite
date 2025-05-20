@@ -1,6 +1,6 @@
 import Navbar from "@/components/navbar";
 import "./globals.css";
-import { Nunito_Sans, Roboto_Mono } from 'next/font/google'
+import { Nunito_Sans, Roboto_Mono } from "next/font/google";
 
 const roboto_mono = Roboto_Mono({
   subsets: ["latin"],
@@ -16,7 +16,6 @@ const nunito_sans = Nunito_Sans({
   variable: "--font-nunito-sans",
 });
 
-
 export const metadata = {
   title: "Salomé Faria",
   description: "salomefaria.pt",
@@ -28,8 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body fonts={[roboto_mono,nunito_sans]}>
+    <html lang="en" className={(roboto_mono.className, nunito_sans.className)}>
+      <body>
         <Navbar />
         <div className="h-full">{children}</div>
       </body>
