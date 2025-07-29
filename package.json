@@ -3,15 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "15.2.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "heroicons": "^2.2.0",
+    "motion": "^12.19.1",
+    "next": "^15.2.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-responsive-carousel": "^3.2.23"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.10",

@@ -27,7 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={(roboto_mono.className, nunito_sans.className)}>
+    <html
+      lang="en"
+      className={`${roboto_mono.variable} ${nunito_sans.variable}`}
+    >
       <body>
         <Navbar />
         <div className="h-full">{children}</div>
