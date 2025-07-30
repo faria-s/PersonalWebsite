@@ -9,7 +9,7 @@ export default function CollegeNotes() {
           scale="scale-150"
           height="h-60"
           width="w-50 sm:w-140"
-          gradient="2"
+          gradient={2}
           tilt="rotate-15"
         ></GradientSpot>
       </div>
@@ -18,7 +18,7 @@ export default function CollegeNotes() {
           scale="scale-150"
           height="h-50"
           width="w-50 sm:w-110"
-          gradient="1"
+          gradient={1}
           tilt="-rotate-15"
         ></GradientSpot>
       </div>
