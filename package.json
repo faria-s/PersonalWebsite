@@ -14,7 +14,8 @@
     "next": "^15.2.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-responsive-carousel": "^3.2.23"
+    "react-responsive-carousel": "^3.2.23",
+    "vercel": "^44.6.4"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.10",

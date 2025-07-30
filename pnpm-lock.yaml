@@ -26,6 +26,9 @@ importers:
       react-responsive-carousel:
         specifier: ^3.2.23
         version: 3.2.23
+      vercel:
+        specifier: ^44.6.4
+        version: 44.6.4
     devDependencies:
       '@cloudflare/next-on-pages':
         specifier: ^1.13.10
