@@ -27,7 +27,7 @@ const Scrolable_Highlight = () => {
 
   return (
     <div className="grid sm:grid-rows-2 gap-y-10 sm:gap-y-20">
-      <div className="flex flex-col gap-y-5 sm:flex-row justify-evenly items-center">
+      <div className="flex px-3 flex-col gap-y-5 sm:flex-row sm:justify-evenly items-center">
         <div className="order-2 sm:order-1 ">
           <GradientSpot
             scale="scale-120 sm:scale-250"
@@ -44,7 +44,7 @@ const Scrolable_Highlight = () => {
               showStatus={false}
               showIndicators={false}
               showArrows={true}
-              className="w-[22rem] sm:w-xl sm:rounded-3xl sm:border-1 sm:border-white overflow-hidden"
+              className=" hidden sm:block sm:max-w-xl sm:rounded-3xl sm:border-1 sm:border-white sm:overflow-hidden"
             >
               {cesium_photos.map((photo) => {
                 return (
@@ -62,7 +62,7 @@ const Scrolable_Highlight = () => {
             </Carousel>
           </GradientSpot>
         </div>
-        <div className="flex order-1 sm:order-2 px-3 flex-col items-center sm:items-start">
+        <div className="flex order-1 sm:order-2 flex-col items-center sm:items-start">
           <h2> CeSIUM </h2>
           <div className="w-full text-justify sm:w-xl py-5">
             <p className="mb-2">
@@ -175,7 +175,7 @@ const Scrolable_Highlight = () => {
             gradient={2}
             tilt="-rotate-15"
           >
-            <div>
+            <div className="grid items-start mx-auto justify-center m-0 p-0 w-full">
               <Carousel
                 autoPlay
                 interval={3000}
@@ -184,7 +184,7 @@ const Scrolable_Highlight = () => {
                 showStatus={false}
                 showIndicators={false}
                 showArrows={true}
-                className="w-[22rem] sm:w-xl sm:rounded-3xl sm:border-1 sm:border-white overflow-hidden"
+                className="hidden sm:block sm:w-xl sm:rounded-3xl sm:border-1 sm:border-white sm:overflow-hidden "
               >
                 {theater_photos.map((photo) => {
                   return (

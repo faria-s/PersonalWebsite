@@ -32,8 +32,10 @@ export default function RootLayout({
       className={`${roboto_mono.variable} ${nunito_sans.variable}`}
     >
       <body>
-        <Navbar />
-        <div className="h-full">{children}</div>
+        <div className="overflow-hidden">
+          <Navbar />
+          <div className="min-h-screen w-full">{children}</div>
+        </div>
       </body>
     </html>
   );

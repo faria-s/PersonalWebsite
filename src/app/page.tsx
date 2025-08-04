@@ -66,7 +66,7 @@ export default function Home() {
         <div className="sm:py-20">
           <Stack />
         </div>
-        <div>
+        <div className="w-full">
           <h1 className="text-center py-10 sm:py-20"> About Me</h1>
           <Scrolable_Highlight />
         </div>
