@@ -9,10 +9,9 @@ interface SubjectPageProps {
 
 export default async function SubjectPage({ params }: SubjectPageProps) {
   const { subject } = await params;
-  const decodedSubject = decodeURIComponent(subject);
 
-  const notesDir = path.join(process.cwd(), "src/app/collegeNotes/notes");
-  const notes = getNotesForSubject(notesDir, decodedSubject);
+  const decodedSubject = decodeURIComponent(subject);
+  const notes = getNotesForSubject(decodedSubject);
 
   if (notes.length === 0) {
     notFound();

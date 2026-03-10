@@ -1,8 +1,8 @@
-import { readNoteContent } from "@/utils/notes";
+import { fetchNoteContent } from "@/utils/notes";
 import MarkdownRenderer from "@/components/markdown_renderer";
 import Link from "next/link";
-import path from "path";
 import { notFound } from "next/navigation";
+import { headers } from "next/headers";
 
 interface NotePageProps {
   params: Promise<{ subject: string; note: string }>;
@@ -13,9 +13,12 @@ export default async function NotePage({ params }: NotePageProps) {
   const decodedSubject = decodeURIComponent(subject);
   const decodedNote = decodeURIComponent(note);
 
-  const notesDir = path.join(process.cwd(), "src/app/collegeNotes/notes");
-  const content = readNoteContent(notesDir, decodedSubject, decodedNote);
+  const headersList = await headers();
+  const host = headersList.get("host") ?? "localhost:3000";
+  const proto = host.includes("localhost") ? "http" : "https";
+  const baseUrl = `${proto}://${host}`;
 
+  const content = await fetchNoteContent(decodedSubject, decodedNote, baseUrl);
   if (content === null) {
     notFound();
   }

@@ -7,8 +7,7 @@ export default function SubjectLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const notesDir = path.join(process.cwd(), "src/app/collegeNotes/notes");
-  const tree = getNotesTree(notesDir);
+  const tree = getNotesTree();
 
   return (
     <div className="flex min-h-screen">

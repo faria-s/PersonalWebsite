@@ -8,31 +8,35 @@ export type NoteNode = {
   children?: NoteNode[];
 };
 
-export function getNotesTree(baseDir: string, depth: number = 0): NoteNode[] {
-  const entries = fs.readdirSync(baseDir, { withFileTypes: true });
+export function getNotesTree(): NoteNode[] {
+  return Object.keys(MANIFEST)
+    .sort()
+    .map((subject) => ({
+      name: subject,
+      path: `/notes/${subject}`,
+      type: "folder" as const,
+      children: MANIFEST[subject].map((note) => ({
+        name: note,
+        path: `/notes/${subject}/${note}`,
+        type: "file" as const,
+      })),
+    }));
+}
 
-  return entries
-    .map((entry) => {
-      const fullPath = path.join(baseDir, entry.name);
-      if (entry.isDirectory()) {
-        // Only include top-level subject folders (depth 0); skip Attachements, Aulas, etc.
-        if (depth > 0) return null;
-        return {
-          name: entry.name,
-          path: fullPath,
-          type: "folder" as const,
-          children: getNotesTree(fullPath, depth + 1),
-        };
-      } else if (entry.name.endsWith(".md")) {
-        return {
-          name: entry.name.replace(".md", ""),
-          path: fullPath,
-          type: "file" as const,
-        };
-      }
-      return null;
-    })
-    .filter(Boolean) as NoteNode[];
+export async function fetchNoteContent(
+  subject: string,
+  note: string,
+  baseUrl: string,
+): Promise<string | null> {
+  const url = `${baseUrl}/notes/${encodeURIComponent(subject)}/${encodeURIComponent(note)}.md`;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    const raw = await res.text();
+    return preprocessObsidianImages(raw, subject);
+  } catch {
+    return null;
+  }
 }
 
 export function getSubjectFolders(notesDir: string): string[] {
@@ -43,18 +47,48 @@ export function getSubjectFolders(notesDir: string): string[] {
     .sort();
 }
 
-export function getNotesForSubject(
-  notesDir: string,
-  subject: string,
-): string[] {
-  const subjectPath = path.join(notesDir, subject);
-  if (!fs.existsSync(subjectPath)) return [];
+const MANIFEST: Record<string, string[]> = {
+  BD: ["Ciclo de Vida de um SBD", "Normalização", "SQL", "Álgebra Relacional"],
+  CC: ["1. Transport Layer", "2. DNS", "3.  HTTP", "4. Encaminhamento"],
+  POO: [
+    "1. Composição, Agregação, Classes",
+    "2. Coleções em Java",
+    "3. Classes UML",
+  ],
+  RC: [
+    "1.2 Access Networks",
+    "1.3 Packet Switching",
+    "1.4 Overview of Delay in Packet-Switched Networks",
+    "1.5 Layered Architecture",
+    "4.1 Overview of Network Layer",
+    "4.2 What's Inside a Router",
+    "4.3 The Internet Protocol (IP)- IPv4, Addressing,IPv6, and more",
+    "4.4 Generalized Forward and SDN",
+    "6.1 Introduction to the Link Layer",
+    "6.2 Error-Detection and -Correction Techniques",
+    "6.3 Multiple Access Protocols",
+    "6.4 LANs",
+    "7. Wireless",
+    "Aula 7",
+    "Aula 8",
+    "Aula 9 - Switching",
+  ],
+  SD: ["1 - Introduction", "2 - Mutual Exclusion", "3 - Concurrent Objects"],
+  SO: [
+    "1 - OS Intro",
+    "4 - CPU Scheduling",
+    "4. The Abstraction - The Process",
+    "5- Memory Virtualization Abstractions and Mechanisms",
+    "5. Interlude - Process API",
+    "6 - Paging and Virtual Memory",
+    "6. Mechanism - Limited Direct Execution",
+    "7 - IO Devices",
+    "8 - File System Interface and Design",
+  ],
+};
 
-  const entries = fs.readdirSync(subjectPath, { withFileTypes: true });
-  return entries
-    .filter((e) => e.isFile() && e.name.endsWith(".md"))
-    .map((e) => e.name.replace(/\.md$/, ""))
-    .sort();
+export function getNotesForSubject(subject: string): string[] {
+  return MANIFEST[subject] ?? [];
 }
 
 export function readNoteContent(
