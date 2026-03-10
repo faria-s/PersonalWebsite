@@ -28,7 +28,7 @@ export default function Home() {
                 college notes.
               </p>
               <p className="mt-2">
-                I'm a second-year Software Engineering student at the University
+                I'm a third-year Software Engineering student at the University
                 of Minho, Braga. I enjoy learning new skills and challenging
                 myself.
               </p>

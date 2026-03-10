@@ -81,10 +81,10 @@ const Scrolable_Highlight = () => {
             <p className="mb-2">
               I've started my journey as a collaborator at both CAOS (Department
               of Open Source and Tech) and DMC (Department of Marketing and
-              Communication), being now a co-director of DREM (Department of
-              External Relations and Partnerships). Besides my current position,
-              I've also been part of the organization of many CeSIUM events such
-              as Program Team in {""}
+              Communication), having also been the co-Director, and now
+              Director, of DSP (Social and Partnerships Department).Besides my
+              current position, I've also been part of the organization of many
+              CeSIUM events such as Program Team in {""}
               <a
                 href="https://2024.seium.org/"
                 target="_blank"
