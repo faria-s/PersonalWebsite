@@ -111,7 +111,7 @@ function preprocessObsidianImages(content: string, subject: string): string {
   return content.replace(/!\[\[([^\]]+)\]\]/g, (_match, filename: string) => {
     const encoded = encodeURIComponent(filename.trim());
     const encodedSubject = encodeURIComponent(subject);
-    return `![${filename.trim()}](/api/attachments/${encodedSubject}/${encoded})`;
+    return `![${filename.trim()}](/notes/${encodedSubject}/Attachements/${encoded})`;
   });
 }
 
