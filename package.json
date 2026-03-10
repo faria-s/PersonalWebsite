@@ -5,20 +5,9 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "start": "next start",
-    "lint": "next lint",
-    "preview": "opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare deploy",
-    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload"
+    "start": "next start"
   },
   "dependencies": {
-    "@mdx-js/loader": "^3.1.1",
-    "@mdx-js/react": "^3.1.1",
-    "@next/mdx": "^15.5.2",
-    "@opennextjs/cloudflare": "^1.17.1",
-    "@types/mdx": "^2.0.13",
-    "eslint": "^8",
-    "heroicons": "^2.2.0",
     "motion": "^12.19.1",
     "next": "^14.2.35",
     "react": "^18.3.1",
@@ -28,22 +17,14 @@
     "rehype-highlight": "^7.0.2",
     "rehype-raw": "^7.0.0",
     "rehype-slug": "^6.0.0",
-    "remark-gfm": "^4.0.1",
-    "vercel": "^44.6.4"
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.10",
     "@tailwindcss/postcss": "^4",
-    "@testing-library/jest-dom": "^6.6.4",
-    "@testing-library/react": "^16.3.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "babel-jest": "^30.0.5",
-    "jest": "^30.0.5",
     "tailwindcss": "^4.0.15",
-    "typescript": "^5",
-    "wrangler": "^4.71.0"
-  },
-  "packageManager": "pnpm@10.6.2+sha512.47870716bea1572b53df34ad8647b42962bc790ce2bf4562ba0f643237d7302a3d6a8ecef9e4bdfc01d23af1969aa90485d4cebb0b9638fa5ef1daef656f6c1b"
+    "typescript": "^5"
+  }
 }
