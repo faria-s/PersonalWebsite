@@ -13,6 +13,7 @@
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "^15.5.2",
     "@types/mdx": "^2.0.13",
+    "eslint": "^8",
     "heroicons": "^2.2.0",
     "motion": "^12.19.1",
     "next": "^14.2.35",
